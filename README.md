@@ -1,23 +1,46 @@
-# visualCaptcha
+# visualCaptcha + Internationalization
 
-visualCaptcha is the easiest to implement secure Captcha with images instead of text, drag & drop capabilities, mobile-friendly, retina-ready, and with accessibility in mind.
+visualCaptcha fork that adds the capability of configuring new languages
+to the original project.
 
-If you want information about what visualCaptcha is, go to http://visualcaptcha.net. It's licensed under a GNU GPL v3 License, but you can reach us if you want other licenses.
+##Configuration
 
-visualCaptcha has several versions, which we're listing below and where you can get more information about a specific version.
+###Directories and selected language
+Modify the file "inc/configuration.json" in order to set the language
+you want to use, the path of audio files and images.  Its important to
+use double quote to delimit key items and strings values in the 
+configuration file.
 
-## Official versions (supported by emotionLoop)
+The audio directory must contain a sub-directory named as the selected
+language. For instance:
 
-- visualCaptcha for PHP: https://github.com/emotionLoop/visualCaptcha-PHP
-- visualCaptcha for WordPress: https://github.com/emotionLoop/visualCaptcha-WordPress
+Given the following "inc/configuration.json" definition
 
-## Unofficial versions (created by community members)
+```
+{
+	"language" : "es-ES",
+	"audios-path" : "audio/",
+  "images-path" : "images/visualcaptcha/"
+}
+```
 
-- visualCaptcha spark for CodeIgniter: https://github.com/montch/visualcaptcha-spark
-- visualCaptcha Gem for Ruby: https://github.com/kimenye/visualcaptcha
+in "audio/" directory, a "audio/es-ES/" sub-directory,
+containing all audio files, must exist.
 
-## Want more?
+###Language 
+To set a new language, in "lang/" directory you've to create a new PHP 
+file named as the same of selected language. For instance "lang/es-ES.php".
 
-Yeah, this repo exists only to be a place to list all other repos.
+There is a template.php file that gives an example of the basic structure 
+and required variables used by the internationalization mechanism.
 
-More information at http://visualcaptcha.net.
+It's no necessary to set the same questions and answers in order to
+configure a new language, you're free to add the questions you want :). 
+
+At this time, only the following languages are provided: 
+- English
+- French (France)
+- Spanish (Spain)
+
+###Thanks
+Thanks to emotionLoop team for creating this amazing solution :).
